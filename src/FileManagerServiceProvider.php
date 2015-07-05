@@ -7,8 +7,9 @@ use Nord\Lumen\FileManager\Adapters\CloudinaryAdapter;
 use Nord\Lumen\FileManager\Adapters\LocalAdapter;
 use Nord\Lumen\FileManager\Adapters\S3Adapter;
 use Nord\Lumen\FileManager\Contracts\IdGenerator as FileIdGeneratorContract;
-use Nord\Lumen\FileManager\Contracts\FileManager as FileManagerContracts;
-use Nord\Lumen\FileManager\Contracts\FileStorage as FileStorageContracts;
+use Nord\Lumen\FileManager\Contracts\FileManager as FileManagerContract;
+use Nord\Lumen\FileManager\Contracts\FileFactory as FileFactoryContract;
+use Nord\Lumen\FileManager\Contracts\FileStorage as FileStorageContract;
 use Nord\Lumen\FileManager\Facades\FileManager as FileManagerFacade;
 
 class FileManagerServiceProvider extends ServiceProvider
@@ -37,9 +38,9 @@ class FileManagerServiceProvider extends ServiceProvider
      */
     protected function registerContainerBindings(Container $container, ConfigRepository $config)
     {
-        $container->alias(FileManager::class, FileManagerContracts::class);
+        $container->alias(FileManager::class, FileManagerContract::class);
 
-        $container->singleton(FileManagerContracts::class, function () use ($container, $config) {
+        $container->singleton(FileManagerContract::class, function () use ($container, $config) {
             return $this->createManager($container, $config);
         });
     }
@@ -61,9 +62,10 @@ class FileManagerServiceProvider extends ServiceProvider
     protected function createManager(Container $container, ConfigRepository $config)
     {
         $filesystem = $container->make('filesystem');
-        $storage    = $container->make(FileStorageContracts::class);
+        $factory    = $container->make(FileFactoryContract::class);
+        $storage    = $container->make(FileStorageContract::class);
 
-        $fileManager = new FileManager($filesystem, $storage);
+        $fileManager = new FileManager($filesystem, $factory, $storage);
 
         $this->configureManager($fileManager, $container, $config->get('filemanager', []));
 

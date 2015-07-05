@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
+use Nord\Lumen\FileManager\Contracts\FileFactory;
 use Nord\Lumen\FileManager\Contracts\IdGenerator;
 use Nord\Lumen\FileManager\Contracts\DiskAdapter;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
@@ -17,6 +18,11 @@ class FileManager implements FileManagerContract
 
     /**
      * @var FilesystemFactory
+     */
+    private $filesystem;
+
+    /**
+     * @var FileFactory
      */
     private $factory;
 
@@ -39,13 +45,15 @@ class FileManager implements FileManagerContract
     /**
      * FileManager constructor.
      *
-     * @param FilesystemFactory $factory
+     * @param FilesystemFactory $filesystem
+     * @param FileFactory       $factory
      * @param FileStorage       $storage
      */
-    public function __construct(FilesystemFactory $factory, FileStorage $storage)
+    public function __construct(FilesystemFactory $filesystem, FileFactory $factory, FileStorage $storage)
     {
-        $this->factory = $factory;
-        $this->storage = $storage;
+        $this->filesystem = $filesystem;
+        $this->factory    = $factory;
+        $this->storage    = $storage;
     }
 
 
@@ -54,18 +62,16 @@ class FileManager implements FileManagerContract
      */
     public function saveFile(FileInfo $info, $name, array $options = [])
     {
-        /** @var FileContract $file */
-        $file = app()->make(FileContract::class);
-
-        $file->setId($this->generateId());
-        $file->setName($this->normalizeName($name));
-        $file->setExtension($this->getExtensionFromFileInfo($info));
-        $file->setPath(array_pull($options, 'path'));
-        $file->setMimeType($info->getMimeType());
-        $file->setByteSize($info->getSize());
-        $file->setData($this->extractDataFromFileInfo($info));
-        $file->setDisk(array_pull($options, 'disk', FileContract::DISK_LOCAL));
-        $file->setSavedAt(Carbon::now());
+        $file = $this->factory->createFile(
+            $this->generateId(),
+            $this->normalizeName($name),
+            $this->getExtensionFromFileInfo($info),
+            array_pull($options, 'path'),
+            $info->getMimeType(),
+            $info->getSize(),
+            $this->extractDataFromFileInfo($info),
+            array_pull($options, 'disk', FileContract::DISK_LOCAL)
+        );
 
         $disk     = $file->getDisk();
         $savePath = $file->getFilePath();
@@ -131,7 +137,7 @@ class FileManager implements FileManagerContract
     {
         $name = $adapter->getName();
 
-        $adapter->setFilesystem($this->factory->disk($name));
+        $adapter->setFilesystem($this->filesystem->disk($name));
 
         $this->adapters[$name] = $adapter;
     }
