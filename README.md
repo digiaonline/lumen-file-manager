@@ -2,6 +2,8 @@
 
 File manager module for the Lumen PHP framework.
 
+**Please note that this module is still under active development.**
+
 ## Requirements
 
 - PHP 5.5.9 or newer
@@ -18,6 +20,8 @@ composer require nordsoftware/lumen-file-manager
 ```
 
 ### Bootstrapping
+
+**Please note that we only support Doctrine for now, but we plan to add Eloquent support soon.**
 
 Add the following lines to ```bootstrap/app.php```:
 
