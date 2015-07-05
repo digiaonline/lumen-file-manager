@@ -3,7 +3,7 @@
 use Doctrine\ORM\EntityManagerInterface;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
-use Nord\Lumen\FileManager\Contracts\File as FileContract;
+use Nord\Lumen\FileManager\Contracts\FileFactory as FileFactoryContract;
 use Nord\Lumen\FileManager\Contracts\FileStorage as FileStorageContract;
 
 class DoctrineServiceProvider extends ServiceProvider
@@ -23,14 +23,14 @@ class DoctrineServiceProvider extends ServiceProvider
      */
     protected function registerContainerBindings(Container $container)
     {
+        $container->singleton(FileFactoryContract::class, function () {
+            return new FileFactory();
+        });
+
         $entityManager = $container->make(EntityManagerInterface::class);
 
         $container->singleton(FileStorageContract::class, function () use ($entityManager) {
             return new FileStorage($entityManager);
-        });
-
-        $container->bind(FileContract::class, function () {
-            return new File();
         });
     }
 }

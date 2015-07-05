@@ -56,6 +56,32 @@ class File implements FileContract
 
 
     /**
+     * File constructor.
+     *
+     * @param string $id
+     * @param string $name
+     * @param string $extension
+     * @param string $path
+     * @param string $mimeType
+     * @param int    $byteSize
+     * @param array  $data
+     * @param string $disk
+     */
+    public function __construct($id, $name, $extension, $path, $mimeType, $byteSize, array $data, $disk)
+    {
+        $this->setId($id);
+        $this->setName($name);
+        $this->setExtension($extension);
+        $this->setPath($path);
+        $this->setMimeType($mimeType);
+        $this->setByteSize($byteSize);
+        $this->setData($data);
+        $this->setDisk($disk);
+        $this->setSavedAt(Carbon::now());
+    }
+
+
+    /**
      * @return string
      */
     public function getId()
@@ -141,7 +167,7 @@ class File implements FileContract
      *
      * @throws \Exception
      */
-    public function setId($id)
+    private function setId($id)
     {
         if (empty($id)) {
             throw new \Exception('File ID cannot be empty.');
@@ -156,7 +182,7 @@ class File implements FileContract
      *
      * @throws \Exception
      */
-    public function setName($name)
+    private function setName($name)
     {
         if (empty($name)) {
             throw new \Exception('File name cannot be empty.');
@@ -171,7 +197,7 @@ class File implements FileContract
      *
      * @throws \Exception
      */
-    public function setExtension($extension)
+    private function setExtension($extension)
     {
         if (empty($extension)) {
             throw new \Exception('File extension cannot be empty.');
@@ -184,7 +210,7 @@ class File implements FileContract
     /**
      * @param string $path
      */
-    public function setPath($path)
+    private function setPath($path)
     {
         $this->path = $path;
     }
@@ -193,7 +219,7 @@ class File implements FileContract
     /**
      * @param string $mimeType
      */
-    public function setMimeType($mimeType)
+    private function setMimeType($mimeType)
     {
         $this->mimeType = $mimeType;
     }
@@ -202,7 +228,7 @@ class File implements FileContract
     /**
      * @param int $byteSize
      */
-    public function setByteSize($byteSize)
+    private function setByteSize($byteSize)
     {
         $this->byteSize = $byteSize;
     }
@@ -211,7 +237,7 @@ class File implements FileContract
     /**
      * @param array $data
      */
-    public function setData(array $data)
+    private function setData(array $data)
     {
         $this->data = $data;
     }
@@ -220,7 +246,7 @@ class File implements FileContract
     /**
      * @param string $storage
      */
-    public function setDisk($storage)
+    private function setDisk($storage)
     {
         $this->disk = $storage;
     }
@@ -229,7 +255,7 @@ class File implements FileContract
     /**
      * @param Carbon $savedAt
      */
-    public function setSavedAt(Carbon $savedAt)
+    private function setSavedAt(Carbon $savedAt)
     {
         $this->savedAt = $savedAt;
     }
