@@ -1,7 +1,7 @@
 {
     "name": "nordsoftware/lumen-file-manager",
     "description": "File manager module for the Lumen framework.",
-    "keywords": ["laravel", "lumen", "file", "manager", "upload"],
+    "keywords": ["laravel", "lumen", "file", "manager", "s3", "cloudinary", "upload"],
     "license": "MIT",
     "authors": [
         {
@@ -13,13 +13,13 @@
     "require": {
         "php": ">=5.5.9",
         "crisu83/shortid": "dev-master",
-        "enl/flysystem-cloudinary": "dev-master",
         "league/flysystem-aws-s3-v2": "~1.0@dev",
+        "nordsoftware/lumen-cloudinary": "~0.1@dev",
         "nordsoftware/lumen-doctrine": "~1.0@dev",
         "nesbot/carbon": "~1.20@dev"
     },
     "require-dev": {
-        "laravel/lumen-framework": "^5.1@dev"
+        "laravel/lumen-framework": "^5.2@dev"
     },
     "autoload": {
         "psr-4": {
