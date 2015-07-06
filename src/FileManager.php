@@ -60,11 +60,17 @@ class FileManager implements FileManagerContract
     /**
      * @inheritdoc
      */
-    public function saveFile(FileInfo $info, $name, array $options = [])
+    public function saveFile(FileInfo $info, array $options = [])
     {
+        if (!isset($options['name'])) {
+            $filename = $this->getFilenameFromFileInfo($info);
+            $options['name'] = substr($filename, 0, (strrpos($filename, '.')));
+        }
+
         $file = $this->factory->createFile(
+            $this,
             $this->generateId(),
-            $this->normalizeName($name),
+            $this->normalizeName(array_pull($options, 'name')),
             $this->getExtensionFromFileInfo($info),
             array_pull($options, 'path'),
             $info->getMimeType(),
@@ -188,7 +194,18 @@ class FileManager implements FileManagerContract
      */
     protected function normalizeName($name)
     {
-        return str_slug($name);
+        return $name !== null ? str_slug($name) : null;
+    }
+
+
+    /**
+     * @param FileInfo $info
+     *
+     * @return null|string
+     */
+    protected function getFilenameFromFileInfo(FileInfo $info)
+    {
+        return $info instanceof UploadedFile ? $info->getClientOriginalName() : $info->getFilename();
     }
 
 

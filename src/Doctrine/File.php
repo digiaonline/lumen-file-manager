@@ -3,11 +3,17 @@
 use Carbon\Carbon;
 use Nord\Lumen\Doctrine\Traits\AutoIncrements;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
+use Nord\Lumen\FileManager\Contracts\FileManager;
 
 class File implements FileContract
 {
 
     use AutoIncrements;
+
+    /**
+     * @var FileManager
+     */
+    private $manager;
 
     /**
      * @var string
@@ -58,17 +64,28 @@ class File implements FileContract
     /**
      * File constructor.
      *
-     * @param string $id
-     * @param string $name
-     * @param string $extension
-     * @param string $path
-     * @param string $mimeType
-     * @param int    $byteSize
-     * @param array  $data
-     * @param string $disk
+     * @param FileManager $manager
+     * @param string      $id
+     * @param string      $name
+     * @param string      $extension
+     * @param string      $path
+     * @param string      $mimeType
+     * @param int         $byteSize
+     * @param array       $data
+     * @param string      $disk
      */
-    public function __construct($id, $name, $extension, $path, $mimeType, $byteSize, array $data, $disk)
-    {
+    public function __construct(
+        FileManager $manager,
+        $id,
+        $name,
+        $extension,
+        $path,
+        $mimeType,
+        $byteSize,
+        array $data,
+        $disk
+    ) {
+        $this->setManager($manager);
         $this->setId($id);
         $this->setName($name);
         $this->setExtension($extension);
@@ -154,11 +171,29 @@ class File implements FileContract
 
 
     /**
-     * @return string
+     * @inheritdoc
      */
     public function getFilePath()
     {
         return $this->getPath() . $this->getFilename();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function getUrl(array $options = [])
+    {
+        return $this->manager->getFileUrl($this, $options);
+    }
+
+
+    /**
+     * @param FileManager $manager
+     */
+    private function setManager(FileManager $manager)
+    {
+        $this->manager = $manager;
     }
 
 

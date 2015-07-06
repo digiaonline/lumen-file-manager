@@ -34,7 +34,7 @@ You can now use the ```FileManager``` facade or inject the ```Nord\Lumen\FileMan
 
 ### Example
 
-Here is an example of how to use the file manager to save a file from the request
+Below is an example of how to use this module to save a file from the request
 and return a JSON response with the saved file's ID and URL.
 
 ```php
