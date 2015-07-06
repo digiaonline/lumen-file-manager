@@ -5,8 +5,9 @@ use Carbon\Carbon;
 interface File
 {
 
-    const DISK_LOCAL = 'local';
-    const DISK_S3    = 's3';
+    const DISK_LOCAL      = 'local';
+    const DISK_S3         = 's3';
+    const DISK_CLOUDINARY = 'cloudinary';
 
 
     /**
@@ -55,6 +56,14 @@ interface File
      * @return string
      */
     public function getFilename();
+
+
+    /**
+     * @param array $options
+     *
+     * @return string
+     */
+    public function getUrl(array $options = []);
 
 
     /**

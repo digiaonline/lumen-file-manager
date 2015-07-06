@@ -9,15 +9,21 @@ interface FileManager
 
     /**
      * @param FileInfo $info
-     * @param string   $name
      * @param array    $options
      *
      * @return File
      * @throws AdapterException
      * @throws StorageException
      */
-    public function saveFile(FileInfo $info, $name, array $options = []);
+    public function saveFile(FileInfo $info, array $options = []);
 
+
+    /**
+     * @param string $id
+     *
+     * @return File
+     */
+    public function getFile($id);
 
     /**
      * @param File  $file

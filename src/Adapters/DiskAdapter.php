@@ -77,7 +77,7 @@ abstract class DiskAdapter implements AdapterContract
      */
     public function getFilePath(File $file, array $options)
     {
-        return $file->getFilePath();
+        return $this->createFilePath($file);
     }
 
 
