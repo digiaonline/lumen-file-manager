@@ -1,5 +1,9 @@
 # lumen-file-manager
 
+[![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-file-manager/version)](https://packagist.org/packages/nordsoftware/lumen-file-manager)
+[![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-file-manager/downloads)](https://packagist.org/packages/nordsoftware/lumen-file-manager)
+[![License](https://poser.pugx.org/nordsoftware/lumen-file-manager/license)](https://packagist.org/packages/nordsoftware/lumen-file-manager)
+
 File manager module for the Lumen PHP framework.
 
 **Please note that this module is still under active development.**

@@ -10,6 +10,6 @@ class FileManager extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Nord\Lumen\FileManager\FileManager';
+        return 'Nord\Lumen\FileManager\Contracts\FileManager';
     }
 }
