@@ -63,12 +63,11 @@ class FileManager implements FileManagerContract
     public function saveFile(FileInfo $info, array $options = [])
     {
         if (!isset($options['name'])) {
-            $filename = $this->getFilenameFromFileInfo($info);
+            $filename        = $this->getFilenameFromFileInfo($info);
             $options['name'] = substr($filename, 0, (strrpos($filename, '.')));
         }
 
         $file = $this->factory->createFile(
-            $this,
             $this->generateId(),
             $this->normalizeName(array_pull($options, 'name')),
             $this->getExtensionFromFileInfo($info),

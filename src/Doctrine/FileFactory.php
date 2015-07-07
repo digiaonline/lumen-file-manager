@@ -9,8 +9,8 @@ class FileFactory implements FileFactoryContract
     /**
      * @inheritdoc
      */
-    public function createFile(FileManager $manager, $id, $name, $extension, $path, $mimeType, $byteSize, $data, $disk)
+    public function createFile($id, $name, $extension, $path, $mimeType, $byteSize, $data, $disk)
     {
-        return new File($manager, $id, $name, $extension, $path, $mimeType, $byteSize, $data, $disk);
+        return new File($id, $name, $extension, $path, $mimeType, $byteSize, $data, $disk);
     }
 }

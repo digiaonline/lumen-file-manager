@@ -59,14 +59,6 @@ interface File
 
 
     /**
-     * @param array $options
-     *
-     * @return string
-     */
-    public function getUrl(array $options = []);
-
-
-    /**
      * @return string
      */
     public function getFilePath();

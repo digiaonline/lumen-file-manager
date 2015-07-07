@@ -4,7 +4,6 @@ interface FileFactory
 {
 
     /**
-     * @param FileManager $manager
      * @param string      $id
      * @param string      $name
      * @param string      $extension
@@ -16,5 +15,5 @@ interface FileFactory
      *
      * @return File
      */
-    public function createFile(FileManager $manager, $id, $name, $extension, $path, $mimeType, $byteSize, $data, $disk);
+    public function createFile($id, $name, $extension, $path, $mimeType, $byteSize, $data, $disk);
 }
