@@ -3,7 +3,7 @@
 use Carbon\Carbon;
 use Nord\Lumen\Doctrine\Traits\AutoIncrements;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
-use Nord\Lumen\FileManager\Contracts\FileManager;
+use Nord\Lumen\FileManager\Facades\FileManager;
 
 class File implements FileContract
 {
@@ -168,6 +168,15 @@ class File implements FileContract
     public function getFilePath()
     {
         return $this->getPath() . $this->getFilename();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function getUrl(array $options = [])
+    {
+        return FileManager::getFileUrl($this, $options);
     }
 
 
