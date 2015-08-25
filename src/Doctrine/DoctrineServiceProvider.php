@@ -19,7 +19,7 @@ class DoctrineServiceProvider extends ServiceProvider
 
 
     /**
-     *
+     * @param Container $container
      */
     protected function registerContainerBindings(Container $container)
     {
