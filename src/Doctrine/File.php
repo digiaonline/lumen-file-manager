@@ -1,7 +1,7 @@
 <?php namespace Nord\Lumen\FileManager\Doctrine;
 
 use Carbon\Carbon;
-use Nord\Lumen\Doctrine\Traits\AutoIncrements;
+use Nord\Lumen\Doctrine\ORM\Traits\AutoIncrements;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
 use Nord\Lumen\FileManager\Facades\FileManager;
 
