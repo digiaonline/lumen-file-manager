@@ -70,13 +70,10 @@ class S3Adapter extends DiskAdapter
         $region  = array_get($config, 'region', env('S3_REGION'));
         $version = array_get($config, 'version', 'latest');
 
-        return new S3Client([
-            'credentials' => [
-                'key'    => $key,
-                'secret' => $secret,
-            ],
-            'region' => $region,
-            'version' => $version,
+        return S3Client::factory([
+            'credentials' => ['key' => $key, 'secret' => $secret],
+            'region'      => $region,
+            'version'     => $version,
         ]);
     }
 }
