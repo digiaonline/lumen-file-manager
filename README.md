@@ -30,10 +30,11 @@ composer require nordsoftware/lumen-file-manager
 Add the following lines to ```bootstrap/app.php```:
 
 ```php
-$app->register('Nord\Lumen\FileManager\Doctrine\DoctrineServiceProvider');
+$app->register('Nord\Lumen\FileManager\Doctrine\ORM\DoctrineServiceProvider');
 $app->register('Nord\Lumen\FileManager\FileManagerServiceProvider');
 ```
 
+Replace \Doctrine\ORM in first line with \Doctrine\ODM if you want to save to MongoDB instead.
 You can now use the ```FileManager``` facade or inject the ```Nord\Lumen\FileManager\Contracts\FileManager``` where needed.
 
 ### Example

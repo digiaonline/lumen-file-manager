@@ -1,6 +1,6 @@
-<?php namespace Nord\Lumen\FileManager\Doctrine;
+<?php namespace Nord\Lumen\FileManager\Doctrine\ODM;
 
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ODM\DocumentManagerInterface;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 use Nord\Lumen\FileManager\Contracts\FileFactory as FileFactoryContract;
@@ -27,10 +27,10 @@ class DoctrineServiceProvider extends ServiceProvider
             return new FileFactory();
         });
 
-        $entityManager = $container->make(EntityManagerInterface::class);
+        $documentManager = $container->make(DocumentManagerInterface::class);
 
-        $container->singleton(FileStorageContract::class, function () use ($entityManager) {
-            return new FileStorage($entityManager);
+        $container->singleton(FileStorageContract::class, function () use ($documentManager) {
+            return new FileStorage($documentManager);
         });
     }
 }

@@ -1,7 +1,7 @@
-<?php namespace Nord\Lumen\FileManager\Doctrine;
+<?php namespace Nord\Lumen\FileManager\Doctrine\ODM;
 
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityRepository;
+use Doctrine\ODM\DocumentManagerInterface;
+use Doctrine\ODM\DocumentRepository;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
 use Nord\Lumen\FileManager\Contracts\FileStorage as FileStorageContract;
 
@@ -9,12 +9,12 @@ class FileStorage implements FileStorageContract
 {
 
     /**
-     * @var EntityManagerInterface
+     * @var DocumentManagerInterface
      */
-    private $entityManager;
+    private $documentManager;
 
     /**
-     * @var EntityRepository
+     * @var DocumentRepository
      */
     private $repository;
 
@@ -22,13 +22,13 @@ class FileStorage implements FileStorageContract
     /**
      * FileStorage constructor.
      *
-     * @param EntityManagerInterface $entityManager
+     * @param DocumentManagerInterface $documentManager
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(DocumentManagerInterface $documentManager)
     {
-        $this->entityManager = $entityManager;
+        $this->documentManager = $documentManager;
 
-        $this->repository = $this->entityManager->getRepository(File::class);
+        $this->repository = $this->documentManager->getRepository(File::class);
     }
 
 
@@ -37,8 +37,8 @@ class FileStorage implements FileStorageContract
      */
     public function saveFile(FileContract $file)
     {
-        $this->entityManager->persist($file);
-        $this->entityManager->flush();
+        $this->documentManager->persist($file);
+        $this->documentManager->flush();
 
         return $file;
     }
@@ -49,7 +49,7 @@ class FileStorage implements FileStorageContract
      */
     public function getFile($id)
     {
-        return $this->repository->findOneBy(['id' => $id]);
+        return $this->repository->findOneBy(['shortId' => $id]);
     }
 
 
@@ -64,8 +64,8 @@ class FileStorage implements FileStorageContract
             return false;
         }
 
-        $this->entityManager->remove($file);
-        $this->entityManager->flush();
+        $this->documentManager->remove($file);
+        $this->documentManager->flush();
 
         return true;
     }

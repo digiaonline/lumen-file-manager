@@ -1,19 +1,29 @@
-<?php namespace Nord\Lumen\FileManager\Doctrine;
+<?php namespace Nord\Lumen\FileManager\Doctrine\ODM;
 
 use Carbon\Carbon;
-use Nord\Lumen\Doctrine\ORM\Traits\AutoIncrements;
+use MongoDate;
+use Nord\Lumen\Doctrine\ODM\MongoDB\Domain\Model\ShortId;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
 use Nord\Lumen\FileManager\Facades\FileManager;
 
 class File implements FileContract
 {
 
-    use AutoIncrements;
-
     /**
      * @var string
      */
     private $id;
+
+    /**
+     * @DTO\Expose
+     * @DTO\Type("string")
+     * @DTO\Accessor(getter="getShortIdValue")
+     * @DTO\SerializedName("id")
+     * @DTO\ReadOnly
+     *
+     * @var ShortId
+     */
+    private $shortId;
 
     /**
      * @var string
@@ -78,7 +88,7 @@ class File implements FileContract
         array $data,
         $disk
     ) {
-        $this->setId($id);
+        $this->setShortId($id);
         $this->setName($name);
         $this->setExtension($extension);
         $this->setPath($path);
@@ -98,6 +108,22 @@ class File implements FileContract
         return $this->id;
     }
 
+    /**
+     * @return ShortId
+     */
+    public function getShortId()
+    {
+        return $this->shortId;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getShortIdValue()
+    {
+        return $this->getShortId()->getValue();
+    }
 
     /**
      * @return string
@@ -149,6 +175,9 @@ class File implements FileContract
      */
     public function getSavedAt()
     {
+        if($this->savedAt instanceof MongoDate) {
+            return Carbon::createFromTimestamp($this->savedAt->sec);
+        }
         return $this->savedAt;
     }
 
@@ -192,6 +221,14 @@ class File implements FileContract
         }
 
         $this->id = $id;
+    }
+
+    /**
+     * @param ShortId $shortId
+     */
+    private function setShortId(ShortId $shortId)
+    {
+        $this->shortId = $shortId;
     }
 
 
@@ -275,7 +312,7 @@ class File implements FileContract
      */
     private function setSavedAt(Carbon $savedAt)
     {
-        $this->savedAt = $savedAt;
+        $this->savedAt = new MongoDate($savedAt->getTimeStamp());
     }
 
 
