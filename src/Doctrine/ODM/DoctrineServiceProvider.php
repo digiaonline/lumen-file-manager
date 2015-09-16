@@ -1,10 +1,11 @@
 <?php namespace Nord\Lumen\FileManager\Doctrine\ODM;
 
-use Doctrine\ODM\DocumentManagerInterface;
+use Doctrine\ODM\MongoDB\DocumentManager;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 use Nord\Lumen\FileManager\Contracts\FileFactory as FileFactoryContract;
 use Nord\Lumen\FileManager\Contracts\FileStorage as FileStorageContract;
+use Nord\Lumen\FileManager\Doctrine\FileFactory;
 
 class DoctrineServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,7 @@ class DoctrineServiceProvider extends ServiceProvider
             return new FileFactory();
         });
 
-        $documentManager = $container->make(DocumentManagerInterface::class);
+        $documentManager = $container->make(DocumentManager::class);
 
         $container->singleton(FileStorageContract::class, function () use ($documentManager) {
             return new FileStorage($documentManager);

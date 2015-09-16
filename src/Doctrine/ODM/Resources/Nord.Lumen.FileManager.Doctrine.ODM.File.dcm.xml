@@ -3,7 +3,7 @@
                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                 http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
-    <document name="Nord\Lumen\FileManager\Doctrine\File" collection="files">
+    <document name="Nord\Lumen\FileManager\Doctrine\ODM\File" collection="files">
         <field fieldName="id" type="object_id" id="true"/>
         <field fieldName="shortId" type="short_id" unique="true"/>
         <field fieldName="name" type="string"/>
@@ -16,4 +16,4 @@
         <field fieldName="savedAt" type="mongodate"/>
     </document>
 
-</doctrine-mapping>
+</doctrine-mongo-mapping>

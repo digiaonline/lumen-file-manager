@@ -5,6 +5,7 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 use Nord\Lumen\FileManager\Contracts\FileFactory as FileFactoryContract;
 use Nord\Lumen\FileManager\Contracts\FileStorage as FileStorageContract;
+use Nord\Lumen\FileManager\Doctrine\FileFactory;
 
 class DoctrineServiceProvider extends ServiceProvider
 {

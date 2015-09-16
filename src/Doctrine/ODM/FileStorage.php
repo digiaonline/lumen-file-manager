@@ -1,7 +1,7 @@
 <?php namespace Nord\Lumen\FileManager\Doctrine\ODM;
 
-use Doctrine\ODM\DocumentManagerInterface;
-use Doctrine\ODM\DocumentRepository;
+use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ODM\MongoDB\DocumentRepository;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
 use Nord\Lumen\FileManager\Contracts\FileStorage as FileStorageContract;
 
@@ -9,7 +9,7 @@ class FileStorage implements FileStorageContract
 {
 
     /**
-     * @var DocumentManagerInterface
+     * @var DocumentManager
      */
     private $documentManager;
 
@@ -22,9 +22,9 @@ class FileStorage implements FileStorageContract
     /**
      * FileStorage constructor.
      *
-     * @param DocumentManagerInterface $documentManager
+     * @param DocumentManager $documentManager
      */
-    public function __construct(DocumentManagerInterface $documentManager)
+    public function __construct(DocumentManager $documentManager)
     {
         $this->documentManager = $documentManager;
 
