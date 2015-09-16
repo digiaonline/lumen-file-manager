@@ -34,7 +34,10 @@ $app->register('Nord\Lumen\FileManager\Doctrine\ORM\DoctrineServiceProvider');
 $app->register('Nord\Lumen\FileManager\FileManagerServiceProvider');
 ```
 
-Replace \Doctrine\ORM in first line with \Doctrine\ODM if you want to save to MongoDB instead.
+Add ```base_path('vendor/nordsoftware/lumen-file-manager/src/Doctrine/ORM/Resources')``` to your Doctrine mapping paths.
+
+Replace ```ORM``` with ```ODM``` if you want to save to MongoDB instead.
+
 You can now use the ```FileManager``` facade or inject the ```Nord\Lumen\FileManager\Contracts\FileManager``` where needed.
 
 ### Example
