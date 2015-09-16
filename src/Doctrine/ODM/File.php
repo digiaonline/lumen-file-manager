@@ -2,7 +2,6 @@
 
 use Carbon\Carbon;
 use MongoDate;
-use Nord\Lumen\Doctrine\ODM\MongoDB\Domain\Model\ShortId;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
 use Nord\Lumen\FileManager\Facades\FileManager;
 
@@ -15,13 +14,7 @@ class File implements FileContract
     private $id;
 
     /**
-     * @DTO\Expose
-     * @DTO\Type("string")
-     * @DTO\Accessor(getter="getShortIdValue")
-     * @DTO\SerializedName("id")
-     * @DTO\ReadOnly
-     *
-     * @var ShortId
+     * @var string
      */
     private $shortId;
 
@@ -109,21 +102,13 @@ class File implements FileContract
     }
 
     /**
-     * @return ShortId
+     * @return string
      */
     public function getShortId()
     {
         return $this->shortId;
     }
 
-
-    /**
-     * @return string
-     */
-    public function getShortIdValue()
-    {
-        return $this->getShortId()->getValue();
-    }
 
     /**
      * @return string
@@ -224,9 +209,9 @@ class File implements FileContract
     }
 
     /**
-     * @param ShortId $shortId
+     * @param string $shortId
      */
-    private function setShortId(ShortId $shortId)
+    private function setShortId($shortId)
     {
         $this->shortId = $shortId;
     }
