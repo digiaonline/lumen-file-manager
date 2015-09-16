@@ -25,7 +25,7 @@ class DoctrineServiceProvider extends ServiceProvider
     protected function registerContainerBindings(Container $container)
     {
         $container->singleton(FileFactoryContract::class, function () {
-            return new FileFactory();
+            return new FileFactory(File::class);
         });
 
         $documentManager = $container->make(DocumentManager::class);
