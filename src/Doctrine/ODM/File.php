@@ -170,9 +170,18 @@ class File implements FileContract
     /**
      * @return string
      */
+    public function getSavedAtAsTimestamp()
+    {
+        return $this->getSavedAt()->getTimestamp();
+    }
+
+
+    /**
+     * @return string
+     */
     public function getFilename()
     {
-        return $this->name . '-' . $this->id . '.' . $this->extension;
+        return $this->name . '-' . $this->shortId . '.' . $this->extension;
     }
 
 
