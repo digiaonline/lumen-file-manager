@@ -107,6 +107,14 @@ class File implements FileContract
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
+    public function getExtension()
+    {
+        return $this->extension;
+    }
+
 
     /**
      * @return string
