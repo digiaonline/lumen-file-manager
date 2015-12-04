@@ -17,8 +17,6 @@ class FileManagerServiceProvider extends ServiceProvider
 
     private static $defaultAdapters = [
         ['class' => LocalAdapter::class],
-    //    ['class' => S3Adapter::class],
-    //    ['class' => CloudinaryAdapter::class],
     ];
 
 
@@ -58,6 +56,8 @@ class FileManagerServiceProvider extends ServiceProvider
     /**
      * @param Container        $container
      * @param ConfigRepository $config
+     *
+     * @return FileManager
      */
     protected function createManager(Container $container, ConfigRepository $config)
     {
