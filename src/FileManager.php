@@ -81,7 +81,12 @@ class FileManager implements FileManagerContract
         $disk     = $file->getDisk();
         $savePath = $file->getFilePath();
 
-        if (!$this->getAdapter($disk)->saveFile($savePath, file_get_contents($info->getRealPath()), $options)) {
+        $resource    = fopen($info->getRealPath(), 'r+');
+        $savedToDisk = $this->getAdapter($disk)->saveFile($savePath, $resource, $options);
+        if (is_resource($resource)) {
+            fclose($resource);
+        }
+        if (!$savedToDisk) {
             throw new AdapterException("Failed to save file on disk.");
         }
 
