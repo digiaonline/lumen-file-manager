@@ -1,6 +1,5 @@
 <?php namespace Nord\Lumen\FileManager;
 
-use Carbon\Carbon;
 use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 use Nord\Lumen\FileManager\Contracts\FileFactory;
 use Nord\Lumen\FileManager\Contracts\IdGenerator;
