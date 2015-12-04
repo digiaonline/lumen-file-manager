@@ -13,7 +13,7 @@ interface DiskAdapter
 
     /**
      * @param string $path
-     * @param string $contents
+     * @param string|resource $contents
      * @param array  $options
      *
      * @return bool
