@@ -45,11 +45,13 @@ class FileManagerServiceProvider extends ServiceProvider
 
 
     /**
-     *
+     * Registers facades.
      */
     protected function registerFacades()
     {
-        class_alias(FileManagerFacade::class, 'FileManager');
+        if (!class_exists('FileManager')) {
+            class_alias(FileManagerFacade::class, 'FileManager');
+        }
     }
 
 
