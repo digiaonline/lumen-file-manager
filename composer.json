@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "crisu83/shortid": "dev-master",
+        "crisu83/shortid": "~1.0",
         "nesbot/carbon": "~1.20"
     },
     "require-dev": {
