@@ -2,7 +2,6 @@
 
 namespace Nord\Lumen\FileManager\Eloquent;
 
-use Illuminate\Support\Facades\Log;
 use Nord\Lumen\FileManager\Contracts\FileStorage as FileStorageContract;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
 
@@ -14,7 +13,6 @@ class FileStorage implements FileStorageContract
      */
     public function saveFile(FileContract $file)
     {
-        Log::debug(var_export($file->attributesToArray(), true));
         return $file->save();
     }
 
