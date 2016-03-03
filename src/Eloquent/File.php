@@ -143,7 +143,7 @@ class File extends Model implements FileContract
      */
     public function getFilename()
     {
-        return $this->name . '-' . $this->getKey() . '.' . $this->extension;
+        return $this->name . '-' . $this->getId() . '.' . $this->extension;
     }
 
 
