@@ -33,7 +33,7 @@ class FileFactory implements FileFactoryContract
         $class = $this->getFileClass();
 
         return new $class([
-            'file_id' => $id,
+            'file_id'   => $id,
             'name'      => $name,
             'extension' => $extension,
             'path'      => $path,
