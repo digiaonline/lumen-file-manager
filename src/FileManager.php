@@ -1,5 +1,6 @@
 <?php namespace Nord\Lumen\FileManager;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 use Nord\Lumen\FileManager\Contracts\FileFactory;
 use Nord\Lumen\FileManager\Contracts\IdGenerator;
@@ -74,7 +75,8 @@ class FileManager implements FileManagerContract
             $info->getMimeType(),
             $info->getSize(),
             $this->extractDataFromFileInfo($info),
-            array_pull($options, 'disk', FileContract::DISK_LOCAL)
+            array_pull($options, 'disk', FileContract::DISK_LOCAL),
+            Carbon::now()
         );
 
         $disk     = $file->getDisk();

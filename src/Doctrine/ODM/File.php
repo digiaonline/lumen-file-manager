@@ -70,6 +70,7 @@ class File implements FileContract
      * @param int    $byteSize
      * @param array  $data
      * @param string $disk
+     * @param Carbon $savedAt
      */
     public function __construct(
         $id,
@@ -79,7 +80,8 @@ class File implements FileContract
         $mimeType,
         $byteSize,
         array $data,
-        $disk
+        $disk,
+        Carbon $savedAt
     ) {
         $this->setShortId($id);
         $this->setName($name);
@@ -89,7 +91,7 @@ class File implements FileContract
         $this->setByteSize($byteSize);
         $this->setData($data);
         $this->setDisk($disk);
-        $this->setSavedAt(Carbon::now());
+        $this->setSavedAt($savedAt);
     }
 
 
