@@ -1,10 +1,11 @@
-# lumen-file-manager
+# Lumen File Manager
 
+[![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-file-mananger/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-file-mananger)
 [![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-file-manager/version)](https://packagist.org/packages/nordsoftware/lumen-file-manager)
 [![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-file-manager/downloads)](https://packagist.org/packages/nordsoftware/lumen-file-manager)
 [![License](https://poser.pugx.org/nordsoftware/lumen-file-manager/license)](https://packagist.org/packages/nordsoftware/lumen-file-manager)
 
-File manager module for the Lumen PHP framework.
+File manager module for the [Lumen PHP framework](http://lumen.laravel.com/).
 
 **Please note that this module is still under active development.**
 
@@ -59,10 +60,7 @@ public function uploadFile(Request $request, FileManager $fileManager)
 
 ## Contributing
 
-Please note the following guidelines before submitting pull requests:
-
-- Use the [PSR-2 coding style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
-- Create pull requests for the *develop* branch
+Please read the [guidelines](.github/CONTRIBUTING.md).
 
 ## License
 
