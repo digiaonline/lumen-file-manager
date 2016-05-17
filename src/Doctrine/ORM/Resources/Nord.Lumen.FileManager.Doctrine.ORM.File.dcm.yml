@@ -1,0 +1,35 @@
+Nord\Lumen\FileManager\Doctrine\ORM\File:
+  type: entity
+  table: files
+  id:
+    autoIncrementId:
+      column: id
+      type: integer
+      options:
+        unsigned: true
+      generator:
+        strategy: AUTO
+  fields:
+    id:
+      type: string
+      column: file_id
+    name:
+      type: string
+    extension:
+      type: string
+    path:
+      type: string
+      nullable: true
+    mimeType:
+      type: string
+      column: mime_type
+    byteSize:
+      type: integer
+      column: byte_size
+    data:
+      type: json_array
+    disk:
+      type: string
+    savedAt:
+      type: datetime
+      column: saved_at
