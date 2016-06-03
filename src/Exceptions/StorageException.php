@@ -2,5 +2,4 @@
 
 class StorageException extends \Exception
 {
-
 }
