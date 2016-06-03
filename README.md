@@ -1,6 +1,7 @@
 # Lumen File Manager
 
 [![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-file-manager/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-file-manager)
+[![StyleCI](https://styleci.io/repos/38572466/shield?style=flat)](https://styleci.io/repos/38572466)
 [![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-file-manager/version)](https://packagist.org/packages/nordsoftware/lumen-file-manager)
 [![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-file-manager/downloads)](https://packagist.org/packages/nordsoftware/lumen-file-manager)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
