@@ -7,7 +7,6 @@ use Nord\Lumen\FileManager\Facades\FileManager;
 
 class File implements FileContract
 {
-
     use AutoIncrements;
 
     /**

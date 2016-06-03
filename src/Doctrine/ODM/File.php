@@ -170,7 +170,7 @@ class File implements FileContract
      */
     public function getSavedAt()
     {
-        if($this->savedAt instanceof MongoDate) {
+        if ($this->savedAt instanceof MongoDate) {
             return Carbon::createFromTimestamp($this->savedAt->sec);
         }
         return $this->savedAt;

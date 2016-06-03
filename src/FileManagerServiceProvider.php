@@ -14,7 +14,6 @@ use Nord\Lumen\FileManager\Facades\FileManager as FileManagerFacade;
 
 class FileManagerServiceProvider extends ServiceProvider
 {
-
     private static $defaultAdapters = [
         ['class' => LocalAdapter::class],
     ];

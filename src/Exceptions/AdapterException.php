@@ -2,5 +2,4 @@
 
 class AdapterException extends \Exception
 {
-
 }

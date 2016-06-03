@@ -6,7 +6,6 @@ use Nord\Lumen\FileManager\Contracts\File;
 
 abstract class DiskAdapter implements AdapterContract
 {
-
     const DEFAULT_DIRECTORY = 'files';
 
     /**
