@@ -170,7 +170,7 @@ class File implements FileContract
      */
     public function getSavedAt()
     {
-        if($this->savedAt instanceof MongoDate) {
+        if ($this->savedAt instanceof MongoDate) {
             return Carbon::createFromTimestamp($this->savedAt->sec);
         }
         return $this->savedAt;
@@ -210,21 +210,6 @@ class File implements FileContract
     public function getUrl(array $options = [])
     {
         return FileManager::getFileUrl($this, $options);
-    }
-
-
-    /**
-     * @param string $id
-     *
-     * @throws \Exception
-     */
-    private function setId($id)
-    {
-        if (empty($id)) {
-            throw new \Exception('File ID cannot be empty.');
-        }
-
-        $this->id = $id;
     }
 
     /**

@@ -4,7 +4,6 @@ use Carbon\Carbon;
 
 interface File
 {
-
     const DISK_LOCAL      = 'local';
     const DISK_S3         = 's3';
     const DISK_CLOUDINARY = 'cloudinary';

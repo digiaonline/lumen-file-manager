@@ -1,14 +1,20 @@
 <?php namespace Nord\Lumen\FileManager\Doctrine\ORM;
 
 use Carbon\Carbon;
-use Nord\Lumen\Doctrine\ORM\Traits\AutoIncrements;
+use Doctrine\ORM\Mapping as ORM;
 use Nord\Lumen\FileManager\Contracts\File as FileContract;
 use Nord\Lumen\FileManager\Facades\FileManager;
 
 class File implements FileContract
 {
-
-    use AutoIncrements;
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer", name="id")
+     *
+     * @var int
+     */
+    private $autoIncrementId;
 
     /**
      * @var string
@@ -89,6 +95,14 @@ class File implements FileContract
         $this->setData($data);
         $this->setDisk($disk);
         $this->setSavedAt($savedAt);
+    }
+
+    /**
+     * @return int
+     */
+    public function getAutoIncrementId()
+    {
+        return $this->autoIncrementId;
     }
 
 
