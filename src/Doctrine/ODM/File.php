@@ -212,21 +212,6 @@ class File implements FileContract
         return FileManager::getFileUrl($this, $options);
     }
 
-
-    /**
-     * @param string $id
-     *
-     * @throws \Exception
-     */
-    private function setId($id)
-    {
-        if (empty($id)) {
-            throw new \Exception('File ID cannot be empty.');
-        }
-
-        $this->id = $id;
-    }
-
     /**
      * @param string $shortId
      */
