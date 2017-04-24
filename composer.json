@@ -21,7 +21,7 @@
         "league/fractal": "Install to serialize files using FileTransformer",
         "league/flysystem-aws-s3-v3": "Install to use Amazon S3 as the storage adapter",
         "nordsoftware/lumen-cloudinary": "Install to use Cloudinary as the storage adapter",
-        "nordsoftware/lumen-doctrine": "Install to use Doctrine ORM as the storage adapter",
+        "doctrine/orm": "Install to use Doctrine ORM as the storage adapter",
         "nordsoftware/lumen-doctrine-mongodb-odm": "Install to use Doctrine MongoDb ODM as the storage adapter"
     },
     "autoload": {
