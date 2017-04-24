@@ -3,9 +3,7 @@
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
-use Nord\Lumen\FileManager\Adapters\CloudinaryAdapter;
 use Nord\Lumen\FileManager\Adapters\LocalAdapter;
-use Nord\Lumen\FileManager\Adapters\S3Adapter;
 use Nord\Lumen\FileManager\Contracts\IdGenerator as FileIdGeneratorContract;
 use Nord\Lumen\FileManager\Contracts\FileManager as FileManagerContract;
 use Nord\Lumen\FileManager\Contracts\FileFactory as FileFactoryContract;

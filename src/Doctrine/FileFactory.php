@@ -2,7 +2,6 @@
 
 use Carbon\Carbon;
 use Nord\Lumen\FileManager\Contracts\FileFactory as FileFactoryContract;
-use Nord\Lumen\FileManager\Contracts\FileManager;
 
 class FileFactory implements FileFactoryContract
 {

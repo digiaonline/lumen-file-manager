@@ -9,10 +9,11 @@ class FileStorage implements FileStorageContract
 {
 
     /**
-     * @param File $file
+     * @inheritdoc
      */
     public function saveFile(FileContract $file)
     {
+        /* @var File $file */
         return $file->save();
     }
 
