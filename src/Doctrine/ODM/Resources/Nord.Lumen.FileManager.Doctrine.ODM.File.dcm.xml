@@ -5,15 +5,15 @@
                 http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
     <document name="Nord\Lumen\FileManager\Doctrine\ODM\File" collection="files">
         <field fieldName="id" type="object_id" id="true"/>
-        <field fieldName="shortId" type="string" unique="true"/>
+        <field fieldName="fileId" name="file_id" type="string" unique="true"/>
         <field fieldName="name" type="string"/>
         <field fieldName="extension" type="string"/>
         <field fieldName="path" type="string" nullable="true"/>
-        <field fieldName="mimeType" type="string"/>
-        <field fieldName="byteSize" type="integer"/>
+        <field fieldName="mimeType" name="mime_type" type="string"/>
+        <field fieldName="byteSize" name="byte_size" type="integer"/>
         <field fieldName="data" type="hash"/>
         <field fieldName="disk" type="string"/>
-        <field fieldName="savedAt" type="date"/>
+        <field fieldName="savedAt" name="saved_at" type="date"/>
     </document>
 
 </doctrine-mongo-mapping>
