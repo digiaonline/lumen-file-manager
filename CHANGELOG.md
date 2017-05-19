@@ -160,5 +160,28 @@ Don't forget to update the links at the bottom of the CHANGELOG.
 - Project files.
 
 [Unreleased]: https://github.com/nordsoftware/lumen-file-manager/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/nordsoftware/lumen-file-manager/compare/1.1.4...2.0.0
+[1.1.4]: https://github.com/nordsoftware/lumen-file-manager/compare/1.1.3...1.1.4
+[1.1.3]: https://github.com/nordsoftware/lumen-file-manager/compare/1.1.2...1.1.3
+[1.1.2]: https://github.com/nordsoftware/lumen-file-manager/compare/1.1.1...1.1.2
+[1.1.1]: https://github.com/nordsoftware/lumen-file-manager/compare/1.1.0...1.1.1
+[1.1.0]: https://github.com/nordsoftware/lumen-file-manager/compare/1.0.2...1.1.0
+[1.0.2]: https://github.com/nordsoftware/lumen-file-manager/compare/1.0.1...1.0.2
+[1.0.1]: https://github.com/nordsoftware/lumen-file-manager/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/nordsoftware/lumen-file-manager/compare/0.9.3...1.0.0
+[0.9.3]: https://github.com/nordsoftware/lumen-file-manager/compare/0.9.2...0.9.3
+[0.9.2]: https://github.com/nordsoftware/lumen-file-manager/compare/0.9.1...0.9.2
+[0.9.1]: https://github.com/nordsoftware/lumen-file-manager/compare/0.9.0...0.9.1
+[0.9.0]: https://github.com/nordsoftware/lumen-file-manager/compare/0.8.0...0.9.0
+[0.8.0]: https://github.com/nordsoftware/lumen-file-manager/compare/0.7.0...0.8.0
+[0.7.0]: https://github.com/nordsoftware/lumen-file-manager/compare/0.6.0...0.7.0
+[0.6.0]: https://github.com/nordsoftware/lumen-file-manager/compare/0.5.0...0.6.0
+[0.5.0]: https://github.com/nordsoftware/lumen-file-manager/compare/0.4.1...0.5.0
+[0.4.1]: https://github.com/nordsoftware/lumen-file-manager/compare/0.4.0...0.4.1
+[0.4.0]: https://github.com/nordsoftware/lumen-file-manager/compare/0.3.0...0.4.0
+[0.3.0]: https://github.com/nordsoftware/lumen-file-manager/compare/0.2.3...0.3.0
+[0.2.3]: https://github.com/nordsoftware/lumen-file-manager/compare/0.2.2...0.2.3
+[0.2.2]: https://github.com/nordsoftware/lumen-file-manager/compare/0.2.1...0.2.2
+[0.2.1]: https://github.com/nordsoftware/lumen-file-manager/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/nordsoftware/lumen-file-manager/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/nordsoftware/lumen-file-manager/tree/0.1.0
