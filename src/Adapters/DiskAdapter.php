@@ -47,9 +47,7 @@ abstract class DiskAdapter implements AdapterContract
      */
     public function saveFile($path, $contents, array $options)
     {
-        $visibility = array_get($options, 'visibility');
-
-        return $this->filesystem->put($this->directory . '/' . $path, $contents, $visibility);
+        return $this->filesystem->put($this->directory . '/' . $path, $contents, $options);
     }
 
 
