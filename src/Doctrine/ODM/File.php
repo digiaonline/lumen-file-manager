@@ -9,14 +9,14 @@ class File implements FileContract
 {
 
     /**
-     * @var string
+     * @var \MongoId
      */
     private $id;
 
     /**
      * @var string
      */
-    private $shortId;
+    private $fileId;
 
     /**
      * @var string
@@ -83,7 +83,7 @@ class File implements FileContract
         $disk,
         Carbon $savedAt
     ) {
-        $this->setShortId($id);
+        $this->setFileId($id);
         $this->setName($name);
         $this->setExtension($extension);
         $this->setPath($path);
@@ -96,7 +96,7 @@ class File implements FileContract
 
 
     /**
-     * @return string
+     * @return \MongoId
      */
     public function getId()
     {
@@ -106,9 +106,9 @@ class File implements FileContract
     /**
      * @return string
      */
-    public function getShortId()
+    public function getFileId()
     {
-        return $this->shortId;
+        return $this->fileId;
     }
 
 
@@ -191,7 +191,7 @@ class File implements FileContract
      */
     public function getFilename()
     {
-        return $this->name . '-' . $this->shortId . '.' . $this->extension;
+        return $this->name . '-' . $this->fileId . '.' . $this->extension;
     }
 
 
@@ -213,11 +213,11 @@ class File implements FileContract
     }
 
     /**
-     * @param string $shortId
+     * @param string $fileId
      */
-    private function setShortId($shortId)
+    private function setFileId($fileId)
     {
-        $this->shortId = $shortId;
+        $this->fileId = $fileId;
     }
 
 
