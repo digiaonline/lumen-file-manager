@@ -1,0 +1,31 @@
+Nord\Lumen\FileManager\Doctrine\ODM\File:
+  collection: files
+  fields:
+    id:
+      type: id
+      id: true
+      strategy: AUTO
+    fileId:
+      type: string
+      uinque: true
+      name: file_id
+    name:
+      type: string
+    extension:
+      type: string
+    path:
+      type: string
+      nullable: true
+    mimeType:
+      type: string
+      name: mime_type
+    byteSize:
+      type: integer
+      name: byte_size
+    data:
+      type: hash
+    disk:
+      type: string
+    savedAt:
+      type: date
+      name: saved_at
