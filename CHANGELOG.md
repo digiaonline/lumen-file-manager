@@ -21,6 +21,10 @@ Don't forget to update the links at the bottom of the CHANGELOG.
 ### Security
 - To invite users to upgrade in case of vulnerabilities.
 
+## [2.0.1] - 2017-05-19
+### Fixed
+- Find by shortId -> find by fileId.
+
 ## [2.0.0] - 2017-05-19
 ### Added
 - ODM YAML mapping.
@@ -159,7 +163,8 @@ Don't forget to update the links at the bottom of the CHANGELOG.
 ### Added
 - Project files.
 
-[Unreleased]: https://github.com/nordsoftware/lumen-file-manager/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/nordsoftware/lumen-file-manager/compare/2.0.1...HEAD
+[2.0.1]: https://github.com/nordsoftware/lumen-file-manager/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/nordsoftware/lumen-file-manager/compare/1.1.4...2.0.0
 [1.1.4]: https://github.com/nordsoftware/lumen-file-manager/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/nordsoftware/lumen-file-manager/compare/1.1.2...1.1.3

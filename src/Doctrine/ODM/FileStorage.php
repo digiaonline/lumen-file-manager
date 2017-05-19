@@ -49,7 +49,7 @@ class FileStorage implements FileStorageContract
      */
     public function getFile($id)
     {
-        return $this->repository->findOneBy(['shortId' => $id]);
+        return $this->repository->findOneBy(['fileId' => $id]);
     }
 
 
