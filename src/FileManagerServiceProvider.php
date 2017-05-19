@@ -88,7 +88,7 @@ class FileManagerServiceProvider extends ServiceProvider
         foreach ($adapterConfigs as $adapterConfig) {
             $className = array_pull($adapterConfig, 'class');
 
-            $adapter = $container->make($className, ['config' => $adapterConfig]);
+            $adapter = new $className($adapterConfig);
 
             $fileManager->addAdapter($adapter);
         }
