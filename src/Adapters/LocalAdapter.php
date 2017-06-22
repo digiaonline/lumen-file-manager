@@ -19,7 +19,7 @@ class LocalAdapter extends DiskAdapter
      */
     public function getFilePath(File $file, array $options)
     {
-        return storage_path('app/' . $this->createFilePath($file));
+        return (isset($options['path']) ? $options['path'] : '') . $this->createFilePath($file);
     }
 
 
