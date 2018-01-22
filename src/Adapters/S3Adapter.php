@@ -57,6 +57,23 @@ class S3Adapter extends DiskAdapter
         return $this->client->getObjectUrl($this->bucket, $this->createFilePath($file));
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function getPresignedUrl(File $file, array $options)
+    {
+        $expires = isset($options['expires']) ? $options['expires'] : '+5 minutes';
+
+        $cmd = $this->client->getCommand('GetObject', [
+            'Bucket' => $this->bucket,
+            'Key'    => $this->createFilePath($file),
+        ]);
+
+        $request = $this->client->createPresignedRequest($cmd, $expires);
+
+        return (string) $request->getUri();
+    }
+
 
     /**
      * @param array $config

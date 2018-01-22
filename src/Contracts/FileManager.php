@@ -44,6 +44,16 @@ interface FileManager
 
 
     /**
+     * @param File  $file
+     * @param array $options
+     *
+     * @return string
+     * @throws AdapterException
+     */
+    public function getPresignedFileUrl(File $file, array $options = []);
+
+
+    /**
      * @param File $file
      *
      * @throws AdapterException

@@ -30,4 +30,13 @@ class LocalAdapter extends DiskAdapter
     {
         return url($this->createFilePath($file));
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getPresignedUrl(File $file, array $options)
+    {
+        // Use the normal URL here, as we don't want to break anything.
+        return url($this->createFilePath($file));
+    }
 }

@@ -69,4 +69,11 @@ interface File
      * @return string
      */
     public function getUrl(array $options = []);
+
+    /**
+     * @param array $options
+     *
+     * @return string
+     */
+    public function getPresignedUrl(array $options = []);
 }
