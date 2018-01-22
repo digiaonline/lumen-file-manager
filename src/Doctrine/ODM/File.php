@@ -213,6 +213,14 @@ class File implements FileContract
     }
 
     /**
+     * @inheritdoc
+     */
+    public function getPresignedUrl(array $options = [])
+    {
+        return FileManager::getPresignedFileUrl($this, $options);
+    }
+
+    /**
      * @param string $fileId
      */
     private function setFileId($fileId)

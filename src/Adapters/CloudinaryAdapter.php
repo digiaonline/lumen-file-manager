@@ -2,6 +2,7 @@
 
 use Cloudinary;
 use Nord\Lumen\FileManager\Contracts\File;
+use Nord\Lumen\FileManager\Exceptions\AdapterException;
 
 class CloudinaryAdapter extends DiskAdapter
 {
@@ -61,5 +62,13 @@ class CloudinaryAdapter extends DiskAdapter
             'api_key'    => $apiKey,
             'api_secret' => $apiSecret,
         ]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getPresignedUrl(File $file, array $options)
+    {
+        throw new AdapterException('Presigned URL not supported.');
     }
 }

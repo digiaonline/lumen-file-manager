@@ -32,6 +32,12 @@ abstract class DiskAdapter implements AdapterContract
 
 
     /**
+     * @inheritdoc
+     */
+    abstract public function getPresignedUrl(File $file, array $options);
+
+
+    /**
      * FilesystemAdapter constructor.
      *
      * @param array $config

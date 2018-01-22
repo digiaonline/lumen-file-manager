@@ -21,6 +21,10 @@ Don't forget to update the links at the bottom of the CHANGELOG.
 ### Security
 - To invite users to upgrade in case of vulnerabilities.
 
+## [2.2.0] - 2018-01-22
+### Added
+- Support for pre-signed URLs for AWS S3.
+
 ## [2.1.0] - 2017-06-22
 ### Fixed
 - ODM getFile() fileId -> id, as it's the MongoId that is passed.
@@ -168,7 +172,8 @@ Don't forget to update the links at the bottom of the CHANGELOG.
 ### Added
 - Project files.
 
-[Unreleased]: https://github.com/nordsoftware/lumen-file-manager/compare/2.1.0...HEAD
+[Unreleased]: https://github.com/nordsoftware/lumen-file-manager/compare/2.2.0...HEAD
+[2.2.0]: https://github.com/nordsoftware/lumen-file-manager/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/nordsoftware/lumen-file-manager/compare/2.0.1...2.1.0
 [2.0.1]: https://github.com/nordsoftware/lumen-file-manager/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/nordsoftware/lumen-file-manager/compare/1.1.4...2.0.0

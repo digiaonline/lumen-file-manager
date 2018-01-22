@@ -1,6 +1,7 @@
 <?php namespace Nord\Lumen\FileManager\Contracts;
 
 use Illuminate\Contracts\Filesystem\Filesystem;
+use Nord\Lumen\FileManager\Exceptions\AdapterException;
 
 interface DiskAdapter
 {
@@ -37,6 +38,16 @@ interface DiskAdapter
      * @return string
      */
     public function getFileUrl(File $file, array $options);
+
+
+    /**
+     * @param File  $file
+     * @param array $options Set the `expires` option to change URL expiration time. Defaults to +5 minutes.
+     *
+     * @return string
+     * @throws AdapterException
+     */
+    public function getPresignedUrl(File $file, array $options);
 
 
     /**

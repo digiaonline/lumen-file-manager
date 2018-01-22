@@ -129,6 +129,15 @@ class FileManager implements FileManagerContract
     /**
      * @inheritdoc
      */
+    public function getPresignedFileUrl(FileContract $file, array $options = [])
+    {
+        return $this->getAdapter($file->getDisk())->getPresignedUrl($file, $options);
+    }
+
+
+    /**
+     * @inheritdoc
+     */
     public function deleteFile(FileContract $file, array $options = [])
     {
         if (!$this->getAdapter($file->getDisk())->deleteFile($file, $options)) {
